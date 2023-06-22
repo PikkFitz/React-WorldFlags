@@ -12,7 +12,7 @@ const Blog = () => {
 
     const getData = () => {
         axios
-            .get("http://localhost:3004/articles")  // Récupère via la BDD
+            .get("http://localhost:3004/articles")  // Récupère les données via la BDD
             .then((res) => setBlogData(res.data));
     };
 
@@ -27,7 +27,7 @@ const Blog = () => {
         else {
             setError(false);
 
-            axios.post("http://localhost:3004/articles", {  //  Envoie dans la BDD
+            axios.post("http://localhost:3004/articles", {  //  Envoie les données via la BDD (pour un nouvel objet, pour une modification --> .put ou .patch)
                 author,  // = author: author
                 content,  // = content: content
                 date: Date.now(),

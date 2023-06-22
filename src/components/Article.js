@@ -27,6 +27,8 @@ const Article = ({ article }) => {
             updatedDate: Date.now(), // On ajoute le champ updatedDate dans la BDD
         };
         // On pointe sur le bon élément (article) avec son id et on lui transmet tout le contenu de "data", puis on passe setIsEditing à false
+        // put --> Modifie les données qui lui sont transmises et écrase celles qui ne sont pas spécifiées
+        // patch --> idem que put mais n'écrase pas les données si elles ne sont pas spécifiées (aucune modif sur ces données)
         axios.put('http://localhost:3004/articles/' + article.id, data).then(() => {
             setIsEditing(false);
         });
